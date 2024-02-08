@@ -28,6 +28,6 @@ export class Order {
   }
 
   total(): number {
-    return this._items.reduce((total, item) => total + item.price, 0);
+    return this._items.reduce((total, item) => total + item.total(), 0);
   }
 }
