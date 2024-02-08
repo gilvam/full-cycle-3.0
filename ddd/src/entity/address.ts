@@ -9,24 +9,10 @@ export class Address {
     this._number = number;
     this._zip = zip;
     this._city = city;
-
-    this.validate();
-  }
-
-  validate(): void {
-    if (!this._street.length) {
-      throw new Error('Street is required');
-    }
-    if (!this._zip.length) {
-      throw new Error('Zip is required');
-    }
-    if (!this._city.length) {
-      throw new Error('City is required');
-    }
   }
 
   isValid(): boolean {
-    return !!(this._street.length && this._zip.length && this._city.length);
+    return !!(this._street.length && this._number && this._zip.length && this._city.length);
   }
 
   isInvalid(): boolean {

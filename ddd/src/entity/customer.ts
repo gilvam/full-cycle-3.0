@@ -1,12 +1,13 @@
 import { Address } from './address';
+import { AddressEmpty } from './util/address-empty';
 
-class Customer {
+export class Customer {
   private _id: string;
   private _name: string;
   private _address: Address;
   private _active = false;
 
-  constructor(id: string, name: string, address: Address) {
+  constructor(id: string, name: string, address: Address = AddressEmpty.build()) {
     this._id = id;
     this._name = name;
     this._address = address;
@@ -36,5 +37,9 @@ class Customer {
 
   deactivate() {
     this._active = false;
+  }
+
+  addAddress(address: Address) {
+    this._address = address;
   }
 }
