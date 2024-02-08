@@ -15,10 +15,10 @@ export class Customer {
   }
 
   private validate(): void {
-    if (!this._name.length) {
+    if (!this._name) {
       throw new Error('Name is required');
     }
-    if (!this._id.length) {
+    if (!this._id) {
       throw new Error('Id is required');
     }
   }
