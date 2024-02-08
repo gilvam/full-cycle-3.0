@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:coverage": "jest --collectCoverage --watchAll",
     "lint": "eslint src -c .eslintrc.json --ext js,jsx"
   },
   "keywords": [],
