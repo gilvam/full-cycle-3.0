@@ -32,4 +32,8 @@ export class Product {
     this._price = price;
     this.validate();
   }
+
+  get price(): number {
+    return this._price;
+  }
 }

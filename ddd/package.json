@@ -6,7 +6,7 @@
   "scripts": {
     "tsc": "tsc --noEmit",
     "test": "npm run tsc && jest",
-    "test:coverage": "npm run test --collectCoverage --watchAll",
+    "test:coverage": "npm run test -- --collectCoverage --watchAll",
     "lint": "eslint src -c .eslintrc.json --ext js,jsx"
   },
   "keywords": [],
