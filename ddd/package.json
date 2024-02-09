@@ -4,8 +4,9 @@
   "description": "```shell npm init -y npm i typescript -D npx tsc --init ```",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:coverage": "jest --collectCoverage --watchAll",
+    "tsc": "tsc --noEmit",
+    "test": "npm run tsc && jest",
+    "test:coverage": "npm run test --collectCoverage --watchAll",
     "lint": "eslint src -c .eslintrc.json --ext js,jsx"
   },
   "keywords": [],
