@@ -22,8 +22,8 @@ describe('Order unit tests', () => {
 
   it('should calculate total', () => {
     const orderItems = [
-      new OrderItem('1', 'Item 1', 10, 1),
-      new OrderItem('2', 'Item 2', 15, 2),
+      new OrderItem('1', 'Item 1', 10, 1, 'p1'),
+      new OrderItem('2', 'Item 2', 15, 2, 'p2'),
     ];
     const order = new Order('1', '123', orderItems);
 
