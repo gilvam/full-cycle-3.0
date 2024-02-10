@@ -4,15 +4,15 @@ import { Order } from '../entity/order';
 import { Customer } from '../entity/customer';
 
 describe('Order service unit tests', () => {
-  // it('should place an order', () => {
-  //   const customer = new Customer('c1', 'Customer 1');
-  //   const item1 = new OrderItem('i1', 'Item 1', 10, 1, 'p1');
-  //
-  //   const order = OrderService.placeOrder(customer, [item1]);
-  //
-  //   expect(customer.rewardPoints).toBe(5);
-  //   expect(order.total()).toBe(10);
-  // });
+  it('should place an order', () => {
+    const customer = new Customer('c1', 'Customer 1');
+    const item1 = new OrderItem('i1', 'Item 1', 10, 1, 'p1');
+
+    const order = OrderService.placeOrder(customer, [item1]);
+
+    expect(customer.rewardPoints).toBe(5);
+    expect(order.total()).toBe(10);
+  });
 
   it('should get total of all orders with AAA pattern', () => {
     const orderItem1 = new OrderItem('1', 'p1', 100, 1, 'p1');
@@ -24,5 +24,16 @@ describe('Order service unit tests', () => {
     const total = OrderService.total([order1, order2]);
 
     expect(total).toBe(500);
+  });
+
+  it('should add reward points', () => {
+    const customer = new Customer('c1', 'Customer 1');
+    expect(customer.rewardPoints).toBe(0);
+
+    customer.addRewardPoints(10);
+    expect(customer.rewardPoints).toBe(10);
+
+    customer.addRewardPoints(10);
+    expect(customer.rewardPoints).toBe(20);
   });
 });

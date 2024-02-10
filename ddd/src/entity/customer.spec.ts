@@ -68,12 +68,12 @@ describe('Customer unit tests', () => {
   it('should add rewards points', () => {
     const address = new Address('Rua dois', 2, '12345-678', 'São Paulo');
     const customer = new Customer('123', 'Geraldo', address);
-    const spy = jest.spyOn(customer, 'addRewardsPoints');
+    const spy = jest.spyOn(customer, 'addRewardPoints');
     const points = 10;
 
-    customer.addRewardsPoints(points);
+    customer.addRewardPoints(points);
 
-    expect(customer.rewardsPoints).toBe(points);
+    expect(customer.rewardPoints).toBe(points);
     expect(spy).toHaveBeenCalledTimes(1);
     expect(spy).toHaveBeenCalledWith(points);
   });
