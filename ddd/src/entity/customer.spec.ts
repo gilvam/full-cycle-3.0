@@ -64,4 +64,17 @@ describe('Customer unit tests', () => {
       customer.activate();
     }).toThrowError('Address is mandatory to activate a custimer');
   });
+
+  it('should add rewards points', () => {
+    const address = new Address('Rua dois', 2, '12345-678', 'São Paulo');
+    const customer = new Customer('123', 'Geraldo', address);
+    const spy = jest.spyOn(customer, 'addRewardsPoints');
+    const points = 10;
+
+    customer.addRewardsPoints(points);
+
+    expect(customer.rewardsPoints).toBe(points);
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenCalledWith(points);
+  });
 });
