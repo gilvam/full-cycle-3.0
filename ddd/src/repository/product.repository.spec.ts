@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize-typescript';
 import { Product } from '../domain/entity/product';
 import ProductRepository from './product.repository';
-import ProductModel from '../infrastructure/db/sequelize/models/product.model';
+import ProductDb from '../infrastructure/db/sequelize/models/product.db';
 
 describe('Product repository unit tests', () => {
   let sequileze: Sequelize;
@@ -14,7 +14,7 @@ describe('Product repository unit tests', () => {
       sync: { force: true },
     });
 
-    sequileze.addModels([ProductModel]);
+    sequileze.addModels([ProductDb]);
     await sequileze.sync();
   });
   afterEach(async () => {
@@ -26,7 +26,7 @@ describe('Product repository unit tests', () => {
     const product = new Product('1', 'Product 1', 100);
 
     await productRepository.create(product);
-    const foundProduct = await ProductModel.findOne({ where: { id: product.id } });
+    const foundProduct = await ProductDb.findOne({ where: { id: product.id } });
 
     expect(foundProduct?.toJSON()).toStrictEqual({
       id: product.id,
@@ -40,11 +40,11 @@ describe('Product repository unit tests', () => {
     const product = new Product('1', 'Product 1', 100);
 
     await productRepository.create(product);
-    let foundProduct = await ProductModel.findOne({ where: { id: product.id } });
+    let foundProduct = await ProductDb.findOne({ where: { id: product.id } });
     product.changeName('Product 2');
     product.changePrice(200);
     await productRepository.update(product);
-    foundProduct = await ProductModel.findOne({ where: { id: product.id } });
+    foundProduct = await ProductDb.findOne({ where: { id: product.id } });
 
     expect(foundProduct?.toJSON()).toStrictEqual({
       id: product.id,
@@ -58,7 +58,7 @@ describe('Product repository unit tests', () => {
     const product = new Product('1', 'Product 1', 100);
 
     await productRepository.create(product);
-    const productModel = await ProductModel.findOne({ where: { id: product.id } });
+    const productModel = await ProductDb.findOne({ where: { id: product.id } });
     const foundProduct = await productRepository.find(product.id);
 
     expect(productModel?.toJSON()).toStrictEqual({
