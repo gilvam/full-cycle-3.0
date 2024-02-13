@@ -16,6 +16,6 @@ describe('Order item unit tests', () => {
   it('should throw error if the item quantity is less or equal zero', () => {
     const throwError = () => new OrderItem('1', 'Item 1', 10, 0, 'p1');
 
-    expect(throwError).toThrowError('Quantity must be greater than zero');
+    expect(throwError).toThrow('Quantity must be greater than zero');
   });
 });
