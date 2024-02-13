@@ -1,9 +1,12 @@
-import { Product } from '../domain/entity/product';
+import { Product } from '../../domain/entity/product';
 import IRepository from './repository.interface';
 
-export class IProductRepository implements IRepository<Product> {
+export interface IProductRepository extends IRepository<Product> {
   create(entity: Product): Promise<void>;
+
   update(entity: Product): Promise<void>;
-  find(entity: Product): Promise<Product>;
+
+  find(id: string): Promise<Product>;
+
   findAll(): Promise<Product[]>;
 }

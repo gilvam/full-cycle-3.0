@@ -11,6 +11,18 @@ export class Product {
     this.validate();
   }
 
+  get id(): string {
+    return this._id;
+  }
+
+  get name(): string {
+    return this._name;
+  }
+
+  get price(): number {
+    return this._price;
+  }
+
   validate(): void {
     if (!this._id) {
       throw new Error('Id is required');
@@ -31,9 +43,5 @@ export class Product {
   changePrice(price: number) {
     this._price = price;
     this.validate();
-  }
-
-  get price(): number {
-    return this._price;
   }
 }

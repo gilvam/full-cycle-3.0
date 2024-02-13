@@ -26,6 +26,10 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "eslint-config-airbnb": "^19.0.4"
+    "eslint-config-airbnb": "^19.0.4",
+    "reflect-metadata": "^0.2.1",
+    "sequelize": "^6.37.0",
+    "sequelize-typescript": "^2.1.6",
+    "sqlite3": "^5.1.7"
   }
 }
