@@ -19,17 +19,20 @@ export default class ProductRepository implements IProductRepository {
   }
 
   async find(id: string): Promise<Product> {
-    const productModel = await ProductDb.findOne({ where: { id } });
+    let product: ProductDb;
 
-    if (!productModel) {
+    try {
+      product = await ProductDb.findOne({ where: { id }, rejectOnEmpty: true });
+    } catch (e) {
       throw new Error('Product not found');
     }
-    return new Product(productModel.id, productModel.name, productModel.price);
+
+    return new Product(product.id, product.name, product.price);
   }
 
   async findAll(): Promise<Product[]> {
-    const productModels = await ProductDb.findAll();
-    return productModels.map(
+    const productList = await ProductDb.findAll();
+    return productList.map(
       (productModel) => new Product(productModel.id, productModel.name, productModel.price),
     );
   }

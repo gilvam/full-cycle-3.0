@@ -28,6 +28,25 @@ export class Customer {
     }
   }
 
+  get id(): string {
+    return this._id;
+  }
+  get name(): string {
+    return this._name;
+  }
+
+  get address(): Address {
+    return this._address;
+  }
+
+  get isActivated(): boolean {
+    return this._active;
+  }
+
+  get rewardPoints(): number {
+    return this._rewardPoints;
+  }
+
   changeName(name: string) {
     this._name = name;
     this.validate();
@@ -44,24 +63,8 @@ export class Customer {
     this._active = false;
   }
 
-  get isActivated(): boolean {
-    return this._active;
-  }
-
   addAddress(address: Address) {
     this._address = address;
-  }
-
-  get name(): string {
-    return this._name;
-  }
-
-  get id(): string {
-    return this._id;
-  }
-
-  get rewardPoints(): number {
-    return this._rewardPoints;
   }
 
   addRewardPoints(points: number) {
