@@ -14,10 +14,7 @@ module.exports = {
         node: true,
         jest: true,
       },
-      files: [
-        '.eslintrc.{js,cjs}',
-        '**/*.spec.ts',
-      ],
+      files: ['.eslintrc.{js,cjs}', '**/*.spec.ts'],
       parserOptions: {
         sourceType: 'script',
       },
@@ -28,12 +25,17 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    '@typescript-eslint',
-  ],
+  plugins: ['@typescript-eslint'],
   rules: {
     'import/prefer-default-export': 'off',
     'no-underscore-dangle': 'off',
     'lines-between-class-members': 'off',
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
   },
 };

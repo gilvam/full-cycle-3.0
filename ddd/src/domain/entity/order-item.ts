@@ -5,7 +5,13 @@ export class OrderItem {
   private _price: number;
   private _quantity: number;
 
-  constructor(id: string, name: string, price: number, quantity: number, productId: string) {
+  constructor(
+    id: string,
+    name: string,
+    price: number,
+    quantity: number,
+    productId: string,
+  ) {
     this._id = id;
     this._name = name;
     this._price = price;
@@ -15,17 +21,38 @@ export class OrderItem {
     this.validate();
   }
 
-  validate(): void {
-    if (this._quantity <= 0) {
-      throw new Error('Quantity must be greater than zero');
-    }
+  get id(): string {
+    return this._id;
+  }
+
+  get productId(): string {
+    return this._productId;
+  }
+
+  get name(): string {
+    return this._name;
   }
 
   get price(): number {
     return this._price;
   }
 
+  get quantity(): number {
+    return this._quantity;
+  }
+
+  validate(): void {
+    if (this._quantity <= 0) {
+      throw new Error('Quantity must be greater than zero');
+    }
+  }
+
   total(): number {
     return this._price * this._quantity;
+  }
+
+  changePrice(price: number) {
+    this._price = price;
+    this.validate();
   }
 }
