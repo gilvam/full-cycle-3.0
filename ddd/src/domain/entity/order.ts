@@ -1,6 +1,7 @@
 import { OrderItem } from './order-item';
+import { IOrder } from './order.interface';
 
-export class Order {
+export class Order implements IOrder {
   private _id: string;
   private _customerId: string; // # diferentes agregados: relação por ID
   private _items: OrderItem[] = []; // # mesmo agregado: relação pela classe
@@ -43,7 +44,22 @@ export class Order {
     return this._items.reduce((total, item) => total + item.total(), 0);
   }
 
-  addOrderItem(item: OrderItem): void {
+  updateItem(item: OrderItem): void {
+    this._items = this._items.map((i) => (i.id === item.id ? item : i));
+    this.updateTotal();
+  }
+
+  addItem(item: OrderItem): void {
     this._items.push(item);
+    this.updateTotal();
+  }
+
+  removeItem(id: string): void {
+    this._items = this._items.filter((item) => item.id !== id);
+    this.updateTotal();
+  }
+
+  private updateTotal(): void {
+    this._total = this.total();
   }
 }

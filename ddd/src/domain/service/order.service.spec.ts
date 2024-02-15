@@ -36,4 +36,11 @@ describe('Order service unit tests', () => {
     customer.addRewardPoints(10);
     expect(customer.rewardPoints).toBe(20);
   });
+
+  it('should Items are required', () => {
+    const customer = new Customer('c1', 'Customer 1');
+    const throwError = () => OrderService.placeOrder(customer, []);
+
+    expect(throwError).toThrowError('Items are required');
+  });
 });

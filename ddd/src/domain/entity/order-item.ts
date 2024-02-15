@@ -1,4 +1,6 @@
-export class OrderItem {
+import { IOrderItem } from './order-item.interface';
+
+export class OrderItem implements IOrderItem {
   private _id: string;
   private _productId: string;
   private _name: string;
@@ -51,7 +53,7 @@ export class OrderItem {
     return this._price * this._quantity;
   }
 
-  changePrice(price: number) {
+  changePrice(price: number): void {
     this._price = price;
     this.validate();
   }
