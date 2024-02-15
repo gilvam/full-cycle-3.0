@@ -7,8 +7,9 @@ import {
   PrimaryKey,
   Table,
 } from 'sequelize-typescript';
-import ProductDb from '@infrastructure/db/sequelize/models/product.db';
+
 import OrderDb from '@infrastructure/db/sequelize/models/order.db';
+import ProductDb from '@infrastructure/db/sequelize/models/product.db';
 
 @Table({ tableName: 'order_items', timestamps: false })
 export default class OrderItemDb extends Model {

@@ -1,5 +1,5 @@
-import { Order } from '@d-entity/order';
 import { Customer } from '@d-entity/customer';
+import { Order } from '@d-entity/order';
 import { OrderItem } from '@d-entity/order-item';
 import { Uuid } from '@util/strategy/uuid';
 

@@ -8,6 +8,7 @@ import {
   PrimaryKey,
   Table,
 } from 'sequelize-typescript';
+
 import CustomerDb from '@infrastructure/db/sequelize/models/customer.db';
 import OrderItemDb from '@infrastructure/db/sequelize/models/order-item.db';
 

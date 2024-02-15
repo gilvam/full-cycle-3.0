@@ -1,7 +1,7 @@
-import { Customer } from '@d-entity/customer';
 import { Address } from '@d-entity/address';
-import { OrderItem } from '@d-entity/order-item';
+import { Customer } from '@d-entity/customer';
 import { Order } from '@d-entity/order';
+import { OrderItem } from '@d-entity/order-item';
 
 const customer = new Customer('123', 'Geraldo da Silva');
 const address = new Address('Rua dois', 2, '12345-678', 'São Paulo');
