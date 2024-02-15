@@ -1,7 +1,7 @@
-import { Customer } from '../domain/entity/customer';
-import CustomerDb from '../infrastructure/db/sequelize/models/customer.db';
-import { ICustomerRepository } from './_models/customer-repository.interface';
-import { Address } from '../domain/entity/address';
+import { Customer } from '@d-entity/customer';
+import { Address } from '@d-entity/address';
+import CustomerDb from '@infrastructure/db/sequelize/models/customer.db';
+import { ICustomerRepository } from '@r-models/customer-repository.interface';
 
 export default class CustomerRepository implements ICustomerRepository {
   async create(entity: Customer): Promise<void> {
@@ -36,24 +36,30 @@ export default class CustomerRepository implements ICustomerRepository {
     let response: CustomerDb;
 
     try {
-      response = await CustomerDb.findOne({ where: { id }, rejectOnEmpty: true });
+      response = await CustomerDb.findOne({
+        where: { id },
+        rejectOnEmpty: true,
+      });
     } catch (e) {
       throw new Error('Customer not found');
     }
 
     const customer = new Customer(id, response.name);
-    const address = new Address(response.street, response.number, response.zipCode, response.city);
+    const address = new Address(
+      response.street,
+      response.number,
+      response.zipCode,
+      response.city,
+    );
     customer.addAddress(address);
     return customer;
   }
 
   async findAll(): Promise<Customer[]> {
     const productList = await CustomerDb.findAll();
-    return productList.map(
-      (it) => {
-        const address = new Address(it.street, it.number, it.zipCode, it.city);
-        return new Customer(it.id, it.name, address);
-      },
-    );
+    return productList.map((it) => {
+      const address = new Address(it.street, it.number, it.zipCode, it.city);
+      return new Customer(it.id, it.name, address);
+    });
   }
 }

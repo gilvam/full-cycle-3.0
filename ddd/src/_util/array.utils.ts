@@ -1,4 +1,4 @@
-import { ObjectUtils } from './object.utils';
+import { ObjectUtils } from '@util/object.utils';
 
 export class ArrayUtils {
   static isEmpty(array: any[]): boolean {

@@ -1,5 +1,5 @@
-import { OrderItem } from './order-item';
-import { IOrder } from './order.interface';
+import { OrderItem } from '@d-entity/order-item';
+import { IOrder } from '@d-entity/order.interface';
 
 export class Order implements IOrder {
   private _id: string;

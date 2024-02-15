@@ -1,4 +1,4 @@
-import { Address } from '../address';
+import { Address } from '@d-entity/address';
 
 export class AddressEmpty {
   static build() {

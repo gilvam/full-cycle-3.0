@@ -1,4 +1,4 @@
-import { IOrderItem } from './order-item.interface';
+import { IOrderItem } from '@d-entity/order-item.interface';
 
 export interface IOrder {
   get id(): string;

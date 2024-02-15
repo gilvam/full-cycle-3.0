@@ -1,13 +1,15 @@
 import {
   BelongsTo,
   Column,
-  DataType, ForeignKey, HasMany,
+  DataType,
+  ForeignKey,
+  HasMany,
   Model,
   PrimaryKey,
   Table,
 } from 'sequelize-typescript';
-import CustomerDb from './customer.db';
-import OrderItemDb from './order-item.db';
+import CustomerDb from '@infrastructure/db/sequelize/models/customer.db';
+import OrderItemDb from '@infrastructure/db/sequelize/models/order-item.db';
 
 @Table({ tableName: 'orders', timestamps: false })
 export default class OrderDb extends Model {

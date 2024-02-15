@@ -1,11 +1,21 @@
-import { ArrayUtils } from './array.utils';
+import { ArrayUtils } from '@util/array.utils';
 
 describe('Array utils tests', () => {
   it('should be a array empty', () => {
     const arrayEmpty = ArrayUtils.isEmpty([]);
     const arrayWithBrackets = ArrayUtils.isEmpty([{}]);
     const arrayWithNull = ArrayUtils.isEmpty(null as any);
-    const arrayWithManyValues = ArrayUtils.isEmpty([{}, {}, [], false, 0, null, undefined, NaN, '']);
+    const arrayWithManyValues = ArrayUtils.isEmpty([
+      {},
+      {},
+      [],
+      false,
+      0,
+      null,
+      undefined,
+      NaN,
+      '',
+    ]);
 
     expect(arrayEmpty).toBe(true);
     expect(arrayWithBrackets).toBe(true);

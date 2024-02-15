@@ -1,7 +1,7 @@
-import { Order } from '../../domain/entity/order';
-import { OrderItem } from '../../domain/entity/order-item';
-import { OrderRepositoryUtil } from './order-repository.util';
-import { IOrder } from '../../domain/entity/order.interface';
+import { Order } from '@d-entity/order';
+import { OrderItem } from '@d-entity/order-item';
+import { IOrder } from '@d-entity/order.interface';
+import { OrderRepositoryUtil } from '@r-utils/order-repository.util';
 
 const iOrderList: IOrder[] = [
   {

@@ -1,4 +1,4 @@
-import { IOrderItem } from './order-item.interface';
+import { IOrderItem } from '@d-entity/order-item.interface';
 
 export class OrderItem implements IOrderItem {
   private _id: string;

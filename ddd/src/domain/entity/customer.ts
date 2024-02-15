@@ -1,5 +1,5 @@
-import { Address } from './address';
-import { AddressEmpty } from './util/address-empty';
+import { AddressEmpty } from '@d-entity/util/address-empty';
+import { Address } from '@d-entity/address';
 
 export class Customer {
   private _id: string;

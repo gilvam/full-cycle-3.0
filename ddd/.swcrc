@@ -19,11 +19,17 @@
 	  "loose": false,
 	  "externalHelpers": false,
 	  "keepClassNames": false // Requires v1.2.50 or upper and requires target to be es2016 or upper.
-	  //,
-		// "baseUrl": "./",
-		// "paths": {
-		//    "@domain/*": ["src/domain/*"]
-		//  }
+	  ,
+		"baseUrl": "./",
+		"paths": {
+		    "@util/*": ["src/_util/*"],
+				"@d-entity/*": ["src/domain/entity/*"],
+				"@d-service/*": ["src/domain/service/*"],
+				"@infrastructure/*": ["src/infrastructure/*"],
+				"@repository/*": ["src/repository/*"],
+				"@r-models/*": ["src/repository/_models/*"],
+        "@r-utils/*": ["src/repository/_utils/*"]
+		 }
 	},
 	"minify": false
 }

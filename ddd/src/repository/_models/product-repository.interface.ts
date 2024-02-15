@@ -1,5 +1,5 @@
-import { Product } from '../../domain/entity/product';
-import IRepository from './repository.interface';
+import { Product } from '@d-entity/product';
+import IRepository from '@r-models/repository.interface';
 
 export interface IProductRepository extends IRepository<Product> {
   create(entity: Product): Promise<void>;

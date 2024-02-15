@@ -1,8 +1,8 @@
 import { Sequelize } from 'sequelize-typescript';
-import CustomerDb from '../infrastructure/db/sequelize/models/customer.db';
-import CustomerRepository from './customer.repository';
-import { Customer } from '../domain/entity/customer';
-import { Address } from '../domain/entity/address';
+import CustomerDb from '@infrastructure/db/sequelize/models/customer.db';
+import CustomerRepository from '@repository/customer.repository';
+import { Customer } from '@d-entity/customer';
+import { Address } from '@d-entity/address';
 
 describe('Customer repository unit tests', () => {
   let sequileze: Sequelize;
@@ -28,7 +28,9 @@ describe('Customer repository unit tests', () => {
     const customer = new Customer('1', 'Customer 1', address);
 
     await customerRepository.create(customer);
-    const foundCustomer = await CustomerDb.findOne({ where: { id: customer.id } });
+    const foundCustomer = await CustomerDb.findOne({
+      where: { id: customer.id },
+    });
 
     expect(foundCustomer?.toJSON()).toStrictEqual({
       id: customer.id,
@@ -51,7 +53,9 @@ describe('Customer repository unit tests', () => {
     customer.changeName('Customer 2');
     await customerRepository.update(customer);
 
-    const foundCustomerChanges = await CustomerDb.findOne({ where: { id: customer.id } });
+    const foundCustomerChanges = await CustomerDb.findOne({
+      where: { id: customer.id },
+    });
 
     expect(foundCustomerChanges?.toJSON()).toStrictEqual({
       id: customer.id,

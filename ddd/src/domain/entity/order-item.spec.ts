@@ -1,4 +1,4 @@
-import { OrderItem } from './order-item';
+import { OrderItem } from '@d-entity/order-item';
 
 describe('Order item unit tests', () => {
   it('should calculate total', () => {

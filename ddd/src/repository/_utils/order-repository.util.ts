@@ -1,9 +1,9 @@
-import { OrderItem } from '../../domain/entity/order-item';
-import { Order } from '../../domain/entity/order';
-import { IOrderItem } from '../../domain/entity/order-item.interface';
-import { IOrder } from '../../domain/entity/order.interface';
-import { ObjectUtils } from '../../_util/object.utils';
-import { ArrayUtils } from '../../_util/array.utils';
+import { OrderItem } from '@d-entity/order-item';
+import { Order } from '@d-entity/order';
+import { IOrderItem } from '@d-entity/order-item.interface';
+import { IOrder } from '@d-entity/order.interface';
+import { ObjectUtils } from '@util/object.utils';
+import { ArrayUtils } from '@util/array.utils';
 
 export class OrderRepositoryUtil {
   static redoOrder(response: IOrder): Order {

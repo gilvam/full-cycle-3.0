@@ -1,10 +1,10 @@
-import { IOrderRepository } from './_models/order-repository.interface';
-import { Order } from '../domain/entity/order';
-import OrderDb from '../infrastructure/db/sequelize/models/order.db';
-import OrderItemDb from '../infrastructure/db/sequelize/models/order-item.db';
-import { OrderItem } from '../domain/entity/order-item';
-import { ObjectUtils } from '../_util/object.utils';
-import { OrderRepositoryUtil } from './_utils/order-repository.util';
+import { Order } from '@d-entity/order';
+import { OrderItem } from '@d-entity/order-item';
+import { ObjectUtils } from '@util/object.utils';
+import OrderDb from '@infrastructure/db/sequelize/models/order.db';
+import OrderItemDb from '@infrastructure/db/sequelize/models/order-item.db';
+import { OrderRepositoryUtil } from '@r-utils/order-repository.util';
+import { IOrderRepository } from '@r-models/order-repository.interface';
 
 export default class OrderRepository implements IOrderRepository {
   async create(entity: Order): Promise<void> {
@@ -69,7 +69,10 @@ export default class OrderRepository implements IOrderRepository {
     );
   }
 
-  private async checkItemsUpdate(newOrder: Order, oldOrder: Order): Promise<void> {
+  private async checkItemsUpdate(
+    newOrder: Order,
+    oldOrder: Order,
+  ): Promise<void> {
     const itemsToChange = newOrder.items.filter((item) => oldOrder.items.find(
       (itemOld) => itemOld.id === item.id
           && ObjectUtils.notEquals<OrderItem>(item, itemOld),
@@ -122,7 +125,10 @@ export default class OrderRepository implements IOrderRepository {
     }
   }
 
-  private async checkItemsDelete(newOrder: Order, oldOrder: Order): Promise<void> {
+  private async checkItemsDelete(
+    newOrder: Order,
+    oldOrder: Order,
+  ): Promise<void> {
     const itemsToDelete = oldOrder.items.filter(
       (item) => !newOrder.items.find((i) => i.id === item.id),
     );

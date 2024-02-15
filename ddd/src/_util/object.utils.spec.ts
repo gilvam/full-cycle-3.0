@@ -1,4 +1,4 @@
-import { ObjectUtils } from './object.utils';
+import { ObjectUtils } from '@util/object.utils';
 
 describe('Object utils tests', () => {
   it('should equals', () => {

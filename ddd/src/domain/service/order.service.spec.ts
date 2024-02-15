@@ -1,7 +1,7 @@
-import OrderService from './order.service';
-import { OrderItem } from '../entity/order-item';
-import { Order } from '../entity/order';
-import { Customer } from '../entity/customer';
+import OrderService from '@d-service/order.service';
+import { OrderItem } from '@d-entity/order-item';
+import { Order } from '@d-entity/order';
+import { Customer } from '@d-entity/customer';
 
 describe('Order service unit tests', () => {
   it('should place an order', () => {

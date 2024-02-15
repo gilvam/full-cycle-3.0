@@ -1,5 +1,5 @@
-import { Product } from '../entity/product';
-import ProductService from './product.service';
+import { Product } from '@d-entity/product';
+import ProductService from '@d-service/product.service';
 
 describe('Product service unit tests', () => {
   it('should change de prices of all products', () => {
@@ -12,6 +12,4 @@ describe('Product service unit tests', () => {
     expect(product1.price).toBe(20);
     expect(product2.price).toBe(40);
   });
-
-  // should throw error when Id is required
 });

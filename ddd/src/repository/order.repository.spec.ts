@@ -1,16 +1,16 @@
 import { Sequelize } from 'sequelize-typescript';
-import OrderDb from '../infrastructure/db/sequelize/models/order.db';
-import CustomerDb from '../infrastructure/db/sequelize/models/customer.db';
-import { OrderItem } from '../domain/entity/order-item';
-import OrderItemDb from '../infrastructure/db/sequelize/models/order-item.db';
-import ProductDb from '../infrastructure/db/sequelize/models/product.db';
-import OrderRepository from './order.repository';
-import { Address } from '../domain/entity/address';
-import { Customer } from '../domain/entity/customer';
-import CustomerRepository from './customer.repository';
-import ProductRepository from './product.repository';
-import { Product } from '../domain/entity/product';
-import { Order } from '../domain/entity/order';
+import CustomerDb from '@infrastructure/db/sequelize/models/customer.db';
+import OrderDb from '@infrastructure/db/sequelize/models/order.db';
+import OrderItemDb from '@infrastructure/db/sequelize/models/order-item.db';
+import ProductDb from '@infrastructure/db/sequelize/models/product.db';
+import { Address } from '@d-entity/address';
+import { Customer } from '@d-entity/customer';
+import { Product } from '@d-entity/product';
+import { Order } from '@d-entity/order';
+import ProductRepository from '@repository/product.repository';
+import { OrderItem } from '@d-entity/order-item';
+import CustomerRepository from '@repository/customer.repository';
+import OrderRepository from '@repository/order.repository';
 
 describe('Order repository unit tests', () => {
   let sequileze: Sequelize;
@@ -39,7 +39,13 @@ describe('Order repository unit tests', () => {
     const product = new Product('1', 'Product 1', 10);
     const productRepository = new ProductRepository();
 
-    const orderItem = new OrderItem('1', product.name, product.price, 2, product.id);
+    const orderItem = new OrderItem(
+      '1',
+      product.name,
+      product.price,
+      2,
+      product.id,
+    );
     const order = new Order('1', customer.id, [orderItem]);
     const orderRepository = new OrderRepository();
 
@@ -62,7 +68,13 @@ describe('Order repository unit tests', () => {
     const product = new Product('1', 'Product 1', 10);
     const productRepository = new ProductRepository();
 
-    const orderItem = new OrderItem('1', product.name, product.price, 2, product.id);
+    const orderItem = new OrderItem(
+      '1',
+      product.name,
+      product.price,
+      2,
+      product.id,
+    );
     const order = new Order('1', customer.id, [orderItem]);
     const orderRepository = new OrderRepository();
 
@@ -85,7 +97,13 @@ describe('Order repository unit tests', () => {
     const product = new Product('1', 'Product 1', 10);
     const productRepository = new ProductRepository();
 
-    const orderItem = new OrderItem('1', product.name, product.price, 2, product.id);
+    const orderItem = new OrderItem(
+      '1',
+      product.name,
+      product.price,
+      2,
+      product.id,
+    );
     const order = new Order('1', customer.id, [orderItem]);
     const orderRepository = new OrderRepository();
 
@@ -109,9 +127,27 @@ describe('Order repository unit tests', () => {
     const product2 = new Product('2', 'Product 2', 20);
     const productRepository = new ProductRepository();
 
-    const orderItem = new OrderItem('1', product.name, product.price, 2, product.id);
-    const orderItem2 = new OrderItem('2', product2.name, product2.price, 4, product2.id);
-    const orderItem3 = new OrderItem('3', product2.name, product2.price, 1, product2.id);
+    const orderItem = new OrderItem(
+      '1',
+      product.name,
+      product.price,
+      2,
+      product.id,
+    );
+    const orderItem2 = new OrderItem(
+      '2',
+      product2.name,
+      product2.price,
+      4,
+      product2.id,
+    );
+    const orderItem3 = new OrderItem(
+      '3',
+      product2.name,
+      product2.price,
+      1,
+      product2.id,
+    );
     const order = new Order('1', customer.id, [orderItem]);
     const order2 = new Order('2', customer.id, [orderItem2, orderItem3]);
     const orderRepository = new OrderRepository();
@@ -137,7 +173,13 @@ describe('Order repository unit tests', () => {
     const product = new Product('1', 'Product 1', 10);
     const productRepository = new ProductRepository();
 
-    const orderItem = new OrderItem('1', product.name, product.price, 2, product.id);
+    const orderItem = new OrderItem(
+      '1',
+      product.name,
+      product.price,
+      2,
+      product.id,
+    );
     const order = new Order('1', customer.id, [orderItem]);
     const orderRepository = new OrderRepository();
 
@@ -165,8 +207,20 @@ describe('Order repository unit tests', () => {
     const product2 = new Product('2', 'Product 2', 30);
     const productRepository = new ProductRepository();
 
-    const orderItem = new OrderItem('1', product.name, product.price, 2, product.id);
-    const orderItem2 = new OrderItem('2', product2.name, product2.price, 3, product.id);
+    const orderItem = new OrderItem(
+      '1',
+      product.name,
+      product.price,
+      2,
+      product.id,
+    );
+    const orderItem2 = new OrderItem(
+      '2',
+      product2.name,
+      product2.price,
+      3,
+      product.id,
+    );
     const order = new Order('1', customer.id, [orderItem]);
     const orderRepository = new OrderRepository();
 
@@ -194,8 +248,20 @@ describe('Order repository unit tests', () => {
     const product2 = new Product('2', 'Product 2', 20);
     const productRepository = new ProductRepository();
 
-    const orderItem = new OrderItem('1', product.name, product.price, 1, product.id);
-    const orderItem2 = new OrderItem('2', product2.name, product2.price, 2, product2.id);
+    const orderItem = new OrderItem(
+      '1',
+      product.name,
+      product.price,
+      1,
+      product.id,
+    );
+    const orderItem2 = new OrderItem(
+      '2',
+      product2.name,
+      product2.price,
+      2,
+      product2.id,
+    );
     const order = new Order('1', customer.id, [orderItem, orderItem2]);
     const orderRepository = new OrderRepository();
 

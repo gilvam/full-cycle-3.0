@@ -1,5 +1,5 @@
-import IRepository from './repository.interface';
-import { Order } from '../../domain/entity/order';
+import { Order } from '@d-entity/order';
+import IRepository from '@r-models/repository.interface';
 
 export interface IOrderRepository extends IRepository<Order> {
   create(entity: Order): Promise<void>;
