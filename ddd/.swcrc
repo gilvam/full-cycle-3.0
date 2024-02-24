@@ -24,9 +24,9 @@
 		"paths": {
 		    "@util/*": ["src/_util/*"],
 				"@d-entity/*": ["src/domain/entity/*"],
+				"@d-repository/*": ["src/domain/repository/*"],
 				"@d-service/*": ["src/domain/service/*"],
 				"@infrastructure/*": ["src/infrastructure/*"],
-				"@repository/*": ["src/repository/*"],
 				"@r-models/*": ["src/repository/_models/*"],
         "@r-utils/*": ["src/repository/_utils/*"]
 		 }

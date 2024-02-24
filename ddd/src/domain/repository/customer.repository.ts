@@ -1,7 +1,6 @@
-import { ICustomerRepository } from '@r-models/customer-repository.interface';
-
 import { Address } from '@d-entity/address';
 import { Customer } from '@d-entity/customer';
+import { ICustomerRepository } from '@d-repository/_models/customer-repository.interface';
 import CustomerDb from '@infrastructure/db/sequelize/models/customer.db';
 
 export default class CustomerRepository implements ICustomerRepository {

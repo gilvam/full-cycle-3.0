@@ -1,8 +1,7 @@
-import { IOrderRepository } from '@r-models/order-repository.interface';
-import { OrderRepositoryUtil } from '@r-utils/order-repository.util';
-
 import { Order } from '@d-entity/order';
 import { OrderItem } from '@d-entity/order-item';
+import { IOrderRepository } from '@d-repository/_models/order-repository.interface';
+import { OrderRepositoryUtil } from '@d-repository/_utils/order-repository.util';
 import OrderItemDb from '@infrastructure/db/sequelize/models/order-item.db';
 import OrderDb from '@infrastructure/db/sequelize/models/order.db';
 import { ObjectUtils } from '@util/object.utils';

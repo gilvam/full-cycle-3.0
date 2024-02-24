@@ -1,5 +1,5 @@
 import { Customer } from '@d-entity/customer';
-import IRepository from '@r-models/repository.interface';
+import IRepository from '@d-repository/_models/repository.interface';
 
 export interface ICustomerRepository extends IRepository<Customer> {
   create(entity: Customer): Promise<void>;

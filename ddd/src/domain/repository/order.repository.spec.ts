@@ -5,13 +5,13 @@ import { Customer } from '@d-entity/customer';
 import { Order } from '@d-entity/order';
 import { OrderItem } from '@d-entity/order-item';
 import { Product } from '@d-entity/product';
+import CustomerRepository from '@d-repository/customer.repository';
+import OrderRepository from '@d-repository/order.repository';
+import ProductRepository from '@d-repository/product.repository';
 import CustomerDb from '@infrastructure/db/sequelize/models/customer.db';
 import OrderItemDb from '@infrastructure/db/sequelize/models/order-item.db';
 import OrderDb from '@infrastructure/db/sequelize/models/order.db';
 import ProductDb from '@infrastructure/db/sequelize/models/product.db';
-import CustomerRepository from '@repository/customer.repository';
-import OrderRepository from '@repository/order.repository';
-import ProductRepository from '@repository/product.repository';
 
 describe('Order repository unit tests', () => {
   let sequileze: Sequelize;
