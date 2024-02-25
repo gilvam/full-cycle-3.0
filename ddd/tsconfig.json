@@ -35,6 +35,7 @@
 		 "paths": {
 			"@util/*": ["src/_util/*"],
 			"@d-entity/*": ["src/domain/entity/*"],
+		  "@d-event/*": ["src/domain/event/*"],
 		  "@d-repository/*": ["src/domain/repository/*"],
 			"@d-service/*": ["src/domain/service/*"],
 			"@infrastructure/*": ["src/infrastructure/*"],

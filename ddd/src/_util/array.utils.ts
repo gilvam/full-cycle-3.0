@@ -1,11 +1,15 @@
 import { ObjectUtils } from '@util/object.utils';
 
 export class ArrayUtils {
-  static isEmpty(array: any[]): boolean {
-    if (!array) {
-      return true;
-    }
+	static isEmpty<T>(array: T[]): boolean {
+		if (!array) {
+			return true;
+		}
 
-    return !array.length || array.some(ObjectUtils.isEmpty);
-  }
+		return !array.length || array.some(ObjectUtils.isEmpty);
+	}
+
+	static hasIndex(index: number): boolean {
+		return index >= 0;
+	}
 }
