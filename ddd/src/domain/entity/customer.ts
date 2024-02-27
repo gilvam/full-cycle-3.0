@@ -2,72 +2,69 @@ import { Address } from '@d-entity/address';
 import { AddressEmpty } from '@d-entity/util/address-empty';
 
 export class Customer {
-  private _id: string;
-  private _name: string;
-  private _address: Address;
-  private _active = false;
-  private _rewardPoints = 0;
+	private _id: string;
+	private _name: string;
+	private _address: Address;
+	private _active = false;
+	private _rewardPoints = 0;
 
-  constructor(
-    id: string,
-    name: string,
-    address: Address = AddressEmpty.build(),
-  ) {
-    this._id = id;
-    this._name = name;
-    this._address = address;
-    this.validate();
-  }
+	constructor(id: string, name: string, address: Address = AddressEmpty.build()) {
+		this._id = id;
+		this._name = name;
+		this._address = address;
+		this.validate();
+	}
 
-  private validate(): void {
-    if (!this._name) {
-      throw new Error('Name is required');
-    }
-    if (!this._id) {
-      throw new Error('Id is required');
-    }
-  }
+	private validate(): void {
+		if (!this._name) {
+			throw new Error('Name is required');
+		}
+		if (!this._id) {
+			throw new Error('Id is required');
+		}
+	}
 
-  get id(): string {
-    return this._id;
-  }
-  get name(): string {
-    return this._name;
-  }
+	get id(): string {
+		return this._id;
+	}
 
-  get address(): Address {
-    return this._address;
-  }
+	get name(): string {
+		return this._name;
+	}
 
-  get isActivated(): boolean {
-    return this._active;
-  }
+	get address(): Address {
+		return this._address;
+	}
 
-  get rewardPoints(): number {
-    return this._rewardPoints;
-  }
+	get isActivated(): boolean {
+		return this._active;
+	}
 
-  changeName(name: string) {
-    this._name = name;
-    this.validate();
-  }
+	get rewardPoints(): number {
+		return this._rewardPoints;
+	}
 
-  activate() {
-    if (this._address.isInvalid()) {
-      throw new Error('Address is mandatory to activate a custimer');
-    }
-    this._active = true;
-  }
+	changeName(name: string) {
+		this._name = name;
+		this.validate();
+	}
 
-  deactivate() {
-    this._active = false;
-  }
+	activate() {
+		if (this._address.isInvalid()) {
+			throw new Error('Address is mandatory to activate a custimer');
+		}
+		this._active = true;
+	}
 
-  addAddress(address: Address) {
-    this._address = address;
-  }
+	deactivate() {
+		this._active = false;
+	}
 
-  addRewardPoints(points: number) {
-    this._rewardPoints += points;
-  }
+	addAddress(address: Address) {
+		this._address = address;
+	}
+
+	addRewardPoints(points: number) {
+		this._rewardPoints += points;
+	}
 }

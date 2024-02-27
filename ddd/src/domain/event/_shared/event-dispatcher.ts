@@ -1,6 +1,6 @@
-import IEventDispatcher from '@d-event/_shared/event-dispatcher.interface';
-import IEventHandler from '@d-event/_shared/event-handler.interface';
-import IEvent from '@d-event/_shared/event.interface';
+import IEventDispatcher from '@d-event/_shared/model/event-dispatcher.interface';
+import IEventHandler from '@d-event/_shared/model/event-handler.interface';
+import IEvent from '@d-event/_shared/model/event.interface';
 import { ArrayUtils } from '@util/array.utils';
 
 export default class EventDispatcher implements IEventDispatcher {

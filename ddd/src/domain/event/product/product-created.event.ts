@@ -1,11 +1,4 @@
-import IEvent from '@d-event/_shared/event.interface';
+import { Product } from '@d-entity/product';
+import Event from '@d-event/_shared/model/event.model';
 
-export default class ProductCreatedEvent implements IEvent {
-	dateTimeOccurred: Date;
-	eventData: unknown;
-
-	constructor(eventData: unknown) {
-		this.dateTimeOccurred = new Date();
-		this.eventData = eventData;
-	}
-}
+export default class ProductCreatedEvent extends Event<Product> {}
